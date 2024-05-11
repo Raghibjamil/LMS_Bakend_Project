@@ -25,7 +25,7 @@ const userSchema=new Schema({
     password:{
         type:'String',
         required:[true,'password is required'],
-        minlength:[8,'password must be at least 8 characters'],
+        minlength:[5,'password must be at least 8 characters'],
         select:false,// will not select password upon looking up a document
     },
     avatar:{

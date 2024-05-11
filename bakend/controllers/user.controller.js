@@ -51,7 +51,7 @@ const register=async (req,res,next)=>{
    /*
 JSON.stringify() is a JavaScript method that converts a JavaScript object or value into a JSON (JavaScript Object Notation) string. **/
     // console.log('File Details>' , JSON.stringify(req.file));
-    console.log('File Details>' , req.file);
+    // console.log('File Details>' , req.file);
 
     if (req.file) {
       try {
@@ -288,7 +288,9 @@ const getProfile= async(req,res,next)=>{
   // Checking if token matches in DB and if it is still valid(Not expired)
   const user = await User.findOne({
     forgotPasswordToken,
-    forgotPasswordExpiry: { $gt: Date.now() }, // $gt will help us check for greater than value, with this we can check if token is valid or expired
+    forgotPasswordExpiry: { $gt: Date.now() }, 
+    
+    // $gt will help us check for greater than value, with this we can check if token is valid or expired
   });
 
   // If not found or expired send the response

@@ -1,3 +1,7 @@
+import {config} from 'dotenv';
+config();
+
+
 import express from'express';
 const app=express();
 import  cors from 'cors';
@@ -9,14 +13,17 @@ import courseRoutes from './routes/course.routes.js';
 import paymentRoutes from './routes/Payment.routes.js'
 
 
+
 // this will parse parse the body information in json....
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
 // this will allow to request or hit the another url from different origin...
+//console.log(`cors link:-${process.env.FRONTEND_URL}`); // when you excessing then you get undefine
 app.use(cors({
-    origin:[process.env.FRONTEND_URL],
+//    origin:'http://localhost:5173',
+ origin: [process.env.FRONTEND_URL],
     credentials:true
 }))
 

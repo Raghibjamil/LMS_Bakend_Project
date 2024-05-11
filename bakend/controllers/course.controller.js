@@ -145,6 +145,7 @@ const updateCourse= async(req,res,next)=>{
    return next(new AppError('Invalid course id or course not found.', 400));
  }
 
+
  // Sending the response after success
  res.status(200).json({
    success: true,
